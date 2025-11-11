@@ -13,8 +13,10 @@ def main_menu():
         ("Entropy Analysis", "entropy.py"),
         ("Encryption and Decryption Speed", "timing.py"),
         ("Brute Force Simulation", "calculations.py"),
+        ("AES Comparison", "cryptosystem_clean.py"),
         ("Exit", None)
     ]
+
     while True:
         print("\nCryptosystem Menu: Hybrid AES + DNA Encoding + Chaos Mapping")
         for i, (desc, _) in enumerate(scripts, 1):
