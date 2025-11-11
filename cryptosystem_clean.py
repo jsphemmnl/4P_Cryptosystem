@@ -84,8 +84,8 @@ def benchmark_hybrid(plaintext, iters=100):
 
 @pytest.mark.parametrize("length", [100, 300, 500, 700, 1000])
 def test_compare_throughput_entropy(length):
-    # Use full charset always for pytest tests for uniformity
     iterations = 100
+    # Using full letters+numbers+symbols charset for uniform pytest tests
     plaintext = generate_random_plaintext(length, 3)
     aes = benchmark_aes_only(plaintext, iterations)
     hybrid = benchmark_hybrid(plaintext, iterations)
@@ -96,11 +96,16 @@ def test_compare_throughput_entropy(length):
     print(f"AES Total Plaintext Entropy: {aes[4]:.2f}")
     print(f"AES Total Ciphertext Entropy: {aes[5]:.2f}")
     print(f"AES Throughput (bytes/sec): {aes[6]:.2f}")
+    print(f"AES Encryption Speed (s): {aes[0]:.6f}")
+    print(f"AES Decryption Speed (s): {aes[1]:.6f}")
+
     print(f"Hybrid Plaintext Entropy (per byte): {hybrid[2]:.4f}")
     print(f"Hybrid Ciphertext Entropy (per byte): {hybrid[3]:.4f}")
     print(f"Hybrid Total Plaintext Entropy: {hybrid[4]:.2f}")
     print(f"Hybrid Total Ciphertext Entropy: {hybrid[5]:.2f}")
     print(f"Hybrid Throughput (bytes/sec): {hybrid[6]:.2f}")
+    print(f"Hybrid Encryption Speed (s): {hybrid[0]:.6f}")
+    print(f"Hybrid Decryption Speed (s): {hybrid[1]:.6f}")
 
     if aes[6] <= 0 or hybrid[6] <= 0:
         print(f"WARNING: Throughput measured zero for length={length}; consider increasing iterations.")
@@ -141,8 +146,13 @@ if __name__ == "__main__":
     print(f"AES Total Plaintext Entropy: {aes[4]:.2f}")
     print(f"AES Total Ciphertext Entropy: {aes[5]:.2f}")
     print(f"AES Throughput (bytes/sec): {aes[6]:.2f}")
+    print(f"AES Encryption Speed (s): {aes[0]:.6f}")
+    print(f"AES Decryption Speed (s): {aes[1]:.6f}")
+
     print(f"Hybrid Plaintext Entropy (per byte): {hybrid[2]:.4f}")
     print(f"Hybrid Ciphertext Entropy (per byte): {hybrid[3]:.4f}")
     print(f"Hybrid Total Plaintext Entropy: {hybrid[4]:.2f}")
     print(f"Hybrid Total Ciphertext Entropy: {hybrid[5]:.2f}")
     print(f"Hybrid Throughput (bytes/sec): {hybrid[6]:.2f}")
+    print(f"Hybrid Encryption Speed (s): {hybrid[0]:.6f}")
+    print(f"Hybrid Decryption Speed (s): {hybrid[1]:.6f}")
