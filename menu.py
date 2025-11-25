@@ -13,7 +13,7 @@ def main_menu():
         ("Entropy Analysis", "entropy.py"),
         ("Encryption and Decryption Speed", "timing.py"),
         ("Brute Force Simulation", "calculations.py"),
-        ("AES Comparison", "cryptosystem_clean.py"),
+        ("Clean Code, AES Comparison", "cryptosystem_clean.py"),
         ("Exit", None)
     ]
 
